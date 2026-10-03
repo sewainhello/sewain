@@ -1,0 +1,381 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  color-scheme: dark;
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "cupcake";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "bumblebee";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "emerald";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "corporate";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "retro";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "cyberpunk";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "valentine";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "garden";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "aqua";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "lofi";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "pastel";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "fantasy";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "wireframe";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "cmyk";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "autumn";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "acid";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "lemonade";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "winter";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "nord";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "synthwave";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "halloween";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "forest";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "black";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "luxury";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "dracula";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "night";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "coffee";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "dim";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "sunset";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "business";
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  /* --color-sidebar-accent: var(--sidebar-accent); */
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+
+:root {
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-content);
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-content);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-content);
+  --muted: var(--color-base-200);
+  --muted-foreground: var(--color-base-content);
+  --destructive: var(--color-error);
+  --destructive-foreground: var(--color-error-content);
+  --border: var(--color-base-300);
+  --input: var(--color-base-300);
+  --ring: var(--color-primary);
+  --card: var(--color-base-100);
+  --card-foreground: var(--color-base-content);
+  --popover: var(--color-base-100);
+  --popover-foreground: var(--color-base-content);
+  --background: var(--color-base-100);
+  --foreground: var(--color-base-content);
+
+  --sidebar: var(--color-base-100);
+  --sidebar-foreground: var(--color-base-content);
+  --sidebar-primary: var(--color-primary);
+  --sidebar-primary-foreground: var(--color-primary-content);
+  /* --sidebar-accent: var(--color-base-200); */
+  --sidebar-accent-foreground: var(--color-base-content);
+  --sidebar-border: var(--color-base-300);
+  --sidebar-ring: var(--color-primary);
+
+  --chart-1: var(--color-primary);
+  --chart-2: var(--color-secondary);
+  --chart-3: var(--color-accent);
+  --chart-4: var(--color-info);
+  --chart-5: var(--color-success);
+
+  --radius: var(--radius-box);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Apply to dialog content elements */
+[data-slot="dialog-content"],
+[data-slot="dialog-content"] > form,
+[data-slot="dialog-content"] > form > div {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+[data-slot="dialog-content"]::-webkit-scrollbar,
+[data-slot="dialog-content"] > form::-webkit-scrollbar,
+[data-slot="dialog-content"] > form > div::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Landing page — scoped premium SaaS theme (white + brand indigo #1B2CC1 family)
+   Only applies inside the `.landing` wrapper on the homepage. The dashboard,
+   auth pages & the DaisyUI ThemeSwitcher are NOT affected.
+   Overrides DaisyUI v5 tokens (oklch + hex) for this subtree only.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.landing {
+  /* Brand blues */
+  --color-primary: #1b2cc1;
+  --color-primary-content: #ffffff;
+  --color-primary-focus: #151fa8; /* #151FA8 dark indigo */
+
+  /* Backgrounds: white + light-blues */
+  --color-base-100: #ffffff;
+  --color-base-200: #f5f9ff;   /* very light blue */
+  --color-base-300: #eaf3ff;   /* soft blue (borders/cards dupe) */
+
+  /* Text: near-black primary, gray scale */
+  --color-base-content: #111111;
+  --color-base-100-content: #111111;
+  --color-base-200-content: #667085;
+  --color-base-300-content: #667085;
+
+  /* Support scales */
+  --color-secondary: #151fa8;
+  --color-secondary-focus: #0e1478;
+  --color-secondary-content: #ffffff;
+  --color-accent: #1b2cc1;
+  --color-accent-focus: #151fa8;
+  --color-accent-content: #ffffff;
+
+  /* Neutral (primary text / outline buttons) */
+  --color-neutral: #111111;
+  --color-neutral-focus: #0a0a0a;
+  --color-neutral-content: #ffffff;
+
+  /* Status */
+  --color-info: #1b2cc1;
+  --color-info-content: #ffffff;
+  --color-success: #16a34a;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #ffffff;
+  --color-error: #e5484d;
+  --color-error-content: #ffffff;
+
+  /* Shape */
+  --radius-box: 1.25rem;       /* cards 20px */
+  --radius-field: 0.625rem;    /* inputs 10px */
+  --radius-selector: 0.625rem; /* checkbox/radio */
+
+  color-scheme: light;
+}
