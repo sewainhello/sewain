@@ -1,206 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@plugin "daisyui" {
-  themes: all;
-}
-
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
-  color-scheme: light;
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "dark";
-  prefersdark: true;
-  color-scheme: dark;
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "cupcake";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "bumblebee";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "emerald";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "corporate";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "retro";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "cyberpunk";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "valentine";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "garden";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "aqua";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "lofi";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "pastel";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "fantasy";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "wireframe";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "cmyk";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "autumn";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "acid";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "lemonade";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "winter";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "nord";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "synthwave";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "halloween";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "forest";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "black";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "luxury";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "dracula";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "night";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "coffee";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "dim";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "sunset";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
-@plugin "daisyui/theme" {
-  name: "business";
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-}
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -217,6 +17,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -224,12 +25,22 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-neutral: var(--neutral);
+  --color-neutral-foreground: var(--neutral-foreground);
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  /* --color-sidebar-accent: var(--sidebar-accent); */
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -249,44 +60,51 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-
 :root {
-  --primary: var(--color-primary);
-  --primary-foreground: var(--color-primary-content);
-  --secondary: var(--color-secondary);
-  --secondary-foreground: var(--color-secondary-content);
-  --accent: var(--color-accent);
-  --accent-foreground: var(--color-accent-content);
-  --muted: var(--color-base-200);
-  --muted-foreground: var(--color-base-content);
-  --destructive: var(--color-error);
-  --destructive-foreground: var(--color-error-content);
-  --border: var(--color-base-300);
-  --input: var(--color-base-300);
-  --ring: var(--color-primary);
-  --card: var(--color-base-100);
-  --card-foreground: var(--color-base-content);
-  --popover: var(--color-base-100);
-  --popover-foreground: var(--color-base-content);
-  --background: var(--color-base-100);
-  --foreground: var(--color-base-content);
+  --primary: #1b2cc1;
+  --primary-foreground: #ffffff;
+  --secondary: #151fa8;
+  --secondary-foreground: #ffffff;
+  --accent: #1b2cc1;
+  --accent-foreground: #ffffff;
+  --muted: #f5f9ff;
+  --muted-foreground: #667085;
+  --destructive: #e5484d;
+  --destructive-foreground: #ffffff;
+  --border: #eaf3ff;
+  --input: #eaf3ff;
+  --ring: #1b2cc1;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --background: #ffffff;
+  --foreground: #111111;
 
-  --sidebar: var(--color-base-100);
-  --sidebar-foreground: var(--color-base-content);
-  --sidebar-primary: var(--color-primary);
-  --sidebar-primary-foreground: var(--color-primary-content);
-  /* --sidebar-accent: var(--color-base-200); */
-  --sidebar-accent-foreground: var(--color-base-content);
-  --sidebar-border: var(--color-base-300);
-  --sidebar-ring: var(--color-primary);
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+  --info: #1b2cc1;
+  --info-foreground: #ffffff;
+  --neutral: #111111;
+  --neutral-foreground: #ffffff;
 
-  --chart-1: var(--color-primary);
-  --chart-2: var(--color-secondary);
-  --chart-3: var(--color-accent);
-  --chart-4: var(--color-info);
-  --chart-5: var(--color-success);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #1b2cc1;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: #eaf3ff;
+  --sidebar-ring: #1b2cc1;
 
-  --radius: var(--radius-box);
+  --chart-1: #1b2cc1;
+  --chart-2: #151fa8;
+  --chart-3: #1b2cc1;
+  --chart-4: #1b2cc1;
+  --chart-5: #16a34a;
+
+  --radius: 1.25rem;
 }
 
 @layer base {
@@ -302,7 +120,6 @@
   }
 }
 
-/* Hide scrollbar but keep scroll functionality */
 .scrollbar-hide {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
@@ -312,7 +129,6 @@
   display: none !important;
 }
 
-/* Apply to dialog content elements */
 [data-slot="dialog-content"],
 [data-slot="dialog-content"] > form,
 [data-slot="dialog-content"] > form > div {
@@ -326,56 +142,81 @@
   display: none !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Landing page — scoped premium SaaS theme (white + brand indigo #1B2CC1 family)
-   Only applies inside the `.landing` wrapper on the homepage. The dashboard,
-   auth pages & the DaisyUI ThemeSwitcher are NOT affected.
-   Overrides DaisyUI v5 tokens (oklch + hex) for this subtree only.
-   ═══════════════════════════════════════════════════════════════════════════ */
-.landing {
-  /* Brand blues */
-  --color-primary: #1b2cc1;
-  --color-primary-content: #ffffff;
-  --color-primary-focus: #151fa8; /* #151FA8 dark indigo */
+@layer components {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+  }
 
-  /* Backgrounds: white + light-blues */
-  --color-base-100: #ffffff;
-  --color-base-200: #f5f9ff;   /* very light blue */
-  --color-base-300: #eaf3ff;   /* soft blue (borders/cards dupe) */
+  .badge-xs {
+    padding: 0.0625rem 0.375rem;
+    font-size: 0.625rem;
+  }
 
-  /* Text: near-black primary, gray scale */
-  --color-base-content: #111111;
-  --color-base-100-content: #111111;
-  --color-base-200-content: #667085;
-  --color-base-300-content: #667085;
+  .badge-soft {
+    background-color: color-mix(in srgb, currentColor 10%, transparent);
+  }
 
-  /* Support scales */
-  --color-secondary: #151fa8;
-  --color-secondary-focus: #0e1478;
-  --color-secondary-content: #ffffff;
-  --color-accent: #1b2cc1;
-  --color-accent-focus: #151fa8;
-  --color-accent-content: #ffffff;
+  .badge-success {
+    color: var(--success);
+    background-color: color-mix(in srgb, var(--success) 10%, transparent);
+  }
 
-  /* Neutral (primary text / outline buttons) */
-  --color-neutral: #111111;
-  --color-neutral-focus: #0a0a0a;
-  --color-neutral-content: #ffffff;
+  .badge-warning {
+    color: var(--warning);
+    background-color: color-mix(in srgb, var(--warning) 10%, transparent);
+  }
 
-  /* Status */
-  --color-info: #1b2cc1;
-  --color-info-content: #ffffff;
-  --color-success: #16a34a;
-  --color-success-content: #ffffff;
-  --color-warning: #f59e0b;
-  --color-warning-content: #ffffff;
-  --color-error: #e5484d;
-  --color-error-content: #ffffff;
+  .badge-error {
+    color: var(--destructive);
+    background-color: color-mix(in srgb, var(--destructive) 10%, transparent);
+  }
 
-  /* Shape */
-  --radius-box: 1.25rem;       /* cards 20px */
-  --radius-field: 0.625rem;    /* inputs 10px */
-  --radius-selector: 0.625rem; /* checkbox/radio */
+  .badge-ghost {
+    color: var(--muted-foreground);
+    background-color: transparent;
+  }
 
-  color-scheme: light;
+  .badge-primary {
+    color: var(--primary);
+    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  }
+
+  .card {
+    border-radius: var(--radius);
+    border-width: 1px;
+    border-color: var(--border);
+    background-color: var(--card);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .table thead th {
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border);
+    font-weight: 600;
+  }
+
+  .table tbody tr {
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border);
+  }
 }

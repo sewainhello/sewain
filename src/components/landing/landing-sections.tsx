@@ -26,7 +26,7 @@ const LIME = "#0051ff";
 
 export function LandingHow() {
   return (
-    <section id="cara-kerja" className="py-24 bg-base-200">
+    <section id="cara-kerja" className="py-24 bg-muted">
       <div className="container mx-auto px-4 md:px-8 max-w-6xl">
         <RevealSection className="mb-12 text-center md:mb-14">
             <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-medium text-[#1249c9] shadow-sm">
@@ -57,15 +57,15 @@ export function LandingHow() {
                 <div
                   className={`relative h-full min-h-[26rem] overflow-hidden rounded-2xl ${corner} p-6 flex flex-col ${
                     active
-                      ? "bg-primary text-primary-content"
-                      : "bg-base-300/70 text-base-content"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-border/70 text-foreground"
                   }`}
                 >
                   <span
                     className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-6 ${
                       active
-                        ? "bg-base-100 text-primary"
-                        : "bg-primary text-primary-content"
+                        ? "bg-background text-primary"
+                        : "bg-primary text-primary-foreground"
                     }`}
                   >
                     {s.step}
@@ -75,15 +75,15 @@ export function LandingHow() {
                   <p
                     className={`text-sm leading-relaxed max-w-[15rem] ${
                       active
-                        ? "text-primary-content/70"
-                        : "text-base-content/55"
+                        ? "text-primary-foreground/70"
+                        : "text-foreground/55"
                     }`}
                   >
                     {s.body}
                   </p>
 
                   <div
-                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 w-[70%] translate-y-6 rounded-xl bg-base-100 text-base-content shadow-xl p-4 ${
+                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 w-[70%] translate-y-6 rounded-xl bg-background text-foreground shadow-xl p-4 ${
                       active
                         ? ""
                         : i === 0
@@ -92,12 +92,12 @@ export function LandingHow() {
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="w-6 h-6 rounded-full bg-neutral text-neutral-content flex items-center justify-center text-[10px]">
+                      <span className="w-6 h-6 rounded-full bg-neutral text-neutral-foreground flex items-center justify-center text-[10px]">
                         ●
                       </span>
                       <div className="leading-tight">
                         <p className="text-[11px] font-semibold">{s.title}</p>
-                        <p className="text-[9px] text-base-content/40">
+                        <p className="text-[9px] text-foreground/40">
                           Detail langkah
                         </p>
                       </div>
@@ -106,7 +106,7 @@ export function LandingHow() {
                       {s.items.slice(0, 3).map((item) => (
                         <li
                           key={item}
-                          className="flex items-center gap-1.5 text-[10px] text-base-content/60"
+                          className="flex items-center gap-1.5 text-[10px] text-foreground/60"
                         >
                           <IconCheck className="w-3 h-3 text-success shrink-0" />
                           {item}
@@ -134,7 +134,7 @@ export function LandingHow() {
 
 export function LandingCompare() {
   return (
-    <section id="bandingkan" className="py-24 bg-base-100">
+    <section id="bandingkan" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-8 max-w-3xl">
         <RevealSection className="mb-12 text-center md:mb-14">
             <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-medium text-[#1249c9] shadow-sm">
@@ -163,16 +163,16 @@ export function LandingCompare() {
                 {COMPARISON_ROWS.map((row, i) => (
                   <tr
                     key={row.label}
-                    className={`border-t border-base-300 ${i % 2 === 1 ? "bg-base-200/40" : ""}`}
+                    className={`border-t border-border ${i % 2 === 1 ? "bg-muted/40" : ""}`}
                   >
                     <td className="py-3.5 px-4 text-sm">{row.label}</td>
                     <td className="py-3.5 px-4 text-center">
                       {row.old === true ? (
                         <IconCheck className="w-5 h-5 text-success mx-auto" />
                       ) : row.old === false ? (
-                        <IconX className="w-5 h-5 text-base-content/20 mx-auto" />
+                        <IconX className="w-5 h-5 text-foreground/20 mx-auto" />
                       ) : (
-                        <span className="text-xs text-base-content/40">
+                        <span className="text-xs text-foreground/40">
                           {row.old}
                         </span>
                       )}
@@ -330,7 +330,7 @@ export function LandingPricing() {
 
 export function LandingTestimonials() {
   return (
-    <section id="testimoni" className="py-24 bg-base-100">
+    <section id="testimoni" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-8">
         <RevealSection className="mb-12 text-center md:mb-14">
             <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-medium text-[#1249c9] shadow-sm">
@@ -347,7 +347,7 @@ export function LandingTestimonials() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {TESTIMONIALS.map((t, i) => (
             <RevealSection key={t.name} delay={i * 100} className="h-full">
-              <div className="card bg-base-200 border border-base-300 h-full">
+              <div className="card bg-muted border border-border h-full">
                 <div className="card-body">
                   <div className="flex gap-0.5 mb-3">
                     {Array(5)
@@ -359,7 +359,7 @@ export function LandingTestimonials() {
                         />
                       ))}
                   </div>
-                  <p className="text-sm text-base-content/70 leading-relaxed flex-1 mb-6 italic">
+                  <p className="text-sm text-foreground/70 leading-relaxed flex-1 mb-6 italic">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">
@@ -370,7 +370,7 @@ export function LandingTestimonials() {
                     </div>
                     <div>
                       <p className="font-semibold text-sm">{t.name}</p>
-                      <p className="text-xs text-base-content/50">
+                      <p className="text-xs text-foreground/50">
                         {t.company} • {t.units}
                       </p>
                     </div>
@@ -387,7 +387,7 @@ export function LandingTestimonials() {
 
 export function LandingFaq() {
   return (
-    <section id="faq" className="py-24 bg-base-200">
+    <section id="faq" className="py-24 bg-muted">
       <div className="container mx-auto px-4 md:px-8 max-w-3xl">
         <RevealSection className="mb-12 text-center md:mb-14">
             <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-medium text-[#1249c9] shadow-sm">
@@ -404,17 +404,17 @@ export function LandingFaq() {
         <div className="space-y-3">
           {FAQS.map((faq, i) => (
             <RevealSection key={faq.q} delay={i * 60}>
-              <details className="group card bg-base-100 border border-base-300">
+              <details className="group card bg-background border border-border">
                 <summary className="cursor-pointer card-body py-5 flex flex-row items-center justify-between [&::-webkit-details-marker]:hidden">
                   <span className="font-semibold text-sm md:text-base pr-4">
                     {faq.q}
                   </span>
-                  <span className="text-xl text-base-content/40 group-open:rotate-45 transition-transform shrink-0">
+                  <span className="text-xl text-foreground/40 group-open:rotate-45 transition-transform shrink-0">
                     +
                   </span>
                 </summary>
                 <div className="px-6 pb-5">
-                  <p className="text-sm text-base-content/60 leading-relaxed">
+                  <p className="text-sm text-foreground/60 leading-relaxed">
                     {faq.a}
                   </p>
                 </div>
@@ -608,7 +608,7 @@ export function LandingFooter() {
           className="h-px mb-6"
           style={{
             background:
-              "linear-gradient(90deg, transparent, hsl(var(--p)/0.3), transparent)",
+              "linear-gradient(90deg, transparent, rgba(27, 44, 193, 0.3), transparent)",
           }}
         />
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-sm text-white/40 md:flex-row">

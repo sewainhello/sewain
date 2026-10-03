@@ -28,15 +28,15 @@ const Toaster = ({ ...props }: ToasterProps) => {
         unstyled: true,
         classNames: {
           toast:
-            "w-full p-4 flex items-center gap-3 rounded-md border-2 border-base-content bg-base-100 text-base-content",
-          success: "!bg-success !text-success-content",
-          error: "!bg-error !text-error-content",
-          warning: "!bg-warning !text-warning-content",
-          info: "!bg-info !text-info-content",
+            "w-full p-4 flex items-center gap-3 rounded-md border-2 border-foreground bg-background text-foreground",
+          success: "!bg-success !text-success-foreground",
+          error: "!bg-destructive !text-destructive-foreground",
+          warning: "!bg-warning !text-warning-foreground",
+          info: "!bg-info !text-info-foreground",
           title: "font-semibold",
           description: "text-sm opacity-80",
           closeButton:
-            "!bg-transparent !border !border-current hover:!bg-base-200",
+            "!bg-transparent !border !border-current hover:!bg-muted",
         },
       }}
       {...props}

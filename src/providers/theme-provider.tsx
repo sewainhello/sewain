@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { DAISY_THEMES } from "@/lib/themes";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -11,11 +10,11 @@ interface ThemeProviderProps {
 export function ThemeProvider({ children }: ThemeProviderProps) {
   return (
     <NextThemesProvider
-      themes={[...DAISY_THEMES]}
-      attribute="data-theme"
+      themes={["light", "dark"]}
+      attribute="class"
       defaultTheme="light"
       enableSystem={false}
-      storageKey="Sewain-theme"
+      storageKey="sewain-theme"
       disableTransitionOnChange={false}
     >
       {children}

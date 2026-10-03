@@ -247,7 +247,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Budi Rent Car Jakarta",
     units: "8 unit",
     initials: "PB",
-    color: "bg-primary text-primary-content",
+    color: "bg-primary text-primary-foreground",
     quote:
       "Dulu booking pakai WhatsApp sering salah. Sekarang pakai Sewain, semua otomatis. Double booking tidak pernah terjadi lagi!",
   },
@@ -256,7 +256,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Sari Jaya Mobil Bandung",
     units: "12 unit",
     initials: "IS",
-    color: "bg-secondary text-secondary-content",
+    color: "bg-secondary text-secondary-foreground",
     quote:
       "Laporan keuangan jadi mudah banget. Profit per mobil langsung kelihatan tiap bulan. Mitra pun jadi lebih percaya sama saya.",
   },
@@ -265,7 +265,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Reza Rental Surabaya",
     units: "15 unit",
     initials: "MR",
-    color: "bg-accent text-accent-content",
+    color: "bg-accent text-accent-foreground",
     quote:
       "Saya punya 5 mitra unit, dulu ribut soal hitungan bagi hasil. Sekarang tinggal share laporan dari Sewain, semua setuju.",
   },

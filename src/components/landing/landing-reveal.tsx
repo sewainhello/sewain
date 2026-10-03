@@ -92,7 +92,7 @@ export function CounterStat({ value, suffix, label }: CounterProps) {
         {count.toLocaleString("id")}
         {suffix}
       </div>
-      <div className="text-base-content/50 text-sm mt-1">{label}</div>
+      <div className="text-foreground/50 text-sm mt-1">{label}</div>
     </div>
   );
 }
