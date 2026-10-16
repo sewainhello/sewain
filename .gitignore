@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# impeccable (local design-review snapshots, not for the repo)
+.impeccable/
+
 #files
 package-lock.json
 

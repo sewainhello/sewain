@@ -61,62 +61,90 @@
 }
 
 :root {
-  --primary: #1b2cc1;
+  --primary: #0a7cff;
   --primary-foreground: #ffffff;
-  --secondary: #151fa8;
+  --secondary: #0a3fc4;
   --secondary-foreground: #ffffff;
-  --accent: #1b2cc1;
+  --accent: #0a7cff;
   --accent-foreground: #ffffff;
-  --muted: #f5f9ff;
-  --muted-foreground: #667085;
+  --muted: #f4f8ff;
+  --muted-foreground: #5b6b82;
   --destructive: #e5484d;
   --destructive-foreground: #ffffff;
-  --border: #eaf3ff;
-  --input: #eaf3ff;
-  --ring: #1b2cc1;
+  --border: #c9dbfa;
+  --input: #c9dbfa;
+  --ring: #0a7cff;
   --card: #ffffff;
-  --card-foreground: #111111;
+  --card-foreground: #0f1b2d;
   --popover: #ffffff;
-  --popover-foreground: #111111;
+  --popover-foreground: #0f1b2d;
   --background: #ffffff;
-  --foreground: #111111;
+  --foreground: #0f1b2d;
 
   --success: #16a34a;
   --success-foreground: #ffffff;
   --warning: #f59e0b;
   --warning-foreground: #ffffff;
-  --info: #1b2cc1;
+  --info: #0a7cff;
   --info-foreground: #ffffff;
-  --neutral: #111111;
+  --neutral: #0f1b2d;
   --neutral-foreground: #ffffff;
 
-  --sidebar: #ffffff;
-  --sidebar-foreground: #111111;
-  --sidebar-primary: #1b2cc1;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent-foreground: #111111;
-  --sidebar-border: #eaf3ff;
-  --sidebar-ring: #1b2cc1;
+  --sewain-sky: #0a7cff;
+  --sewain-deep: #0a3fc4;
+  --sewain-ink: #0f1b2d;
+  --sewain-mist: #eaf3ff;
 
-  --chart-1: #1b2cc1;
-  --chart-2: #151fa8;
-  --chart-3: #1b2cc1;
-  --chart-4: #1b2cc1;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f1b2d;
+  --sidebar-primary: #0a7cff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent-foreground: #0f1b2d;
+  --sidebar-border: #e3edff;
+  --sidebar-ring: #0a7cff;
+
+  --chart-1: #0a7cff;
+  --chart-2: #0a3fc4;
+  --chart-3: #5b9bff;
+  --chart-4: #123a8f;
   --chart-5: #16a34a;
 
-  --radius: 1.25rem;
+  --radius: 1rem;
 }
 
 @layer base {
   * {
     border-color: var(--border);
   }
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
   body {
     background-color: var(--background);
     color: var(--foreground);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
-  html {
-    font-family: var(--font-sans);
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 22%, white);
+    color: var(--secondary);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -143,6 +171,74 @@
 }
 
 @layer components {
+  .container {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .landing section[id] {
+    scroll-margin-top: 96px;
+  }
+
+  @keyframes sewain-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes sewain-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes sewain-pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.55;
+      transform: scale(0.8);
+    }
+  }
+
+  .animate-float-slow {
+    animation: sewain-float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slower {
+    animation: sewain-float 8s ease-in-out 1.2s infinite;
+  }
+
+  .marquee-track {
+    animation: sewain-marquee 28s linear infinite;
+  }
+
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
+  .marquee-mask:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .animate-float-slow,
+    .animate-float-slower {
+      animation: none;
+    }
+  }
   .badge {
     display: inline-flex;
     align-items: center;

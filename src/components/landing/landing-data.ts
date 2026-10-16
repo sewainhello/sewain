@@ -6,25 +6,28 @@ import {
   IconUsers,
   IconBriefcase,
   IconPhone,
-  IconShield,
   IconBolt,
   IconChartBar,
   IconDeviceMobile,
   IconShieldCheck,
+  IconDownload,
+  IconTool,
+  IconCheck,
 } from "@tabler/icons-react";
 
 export const NAV_LINKS = [
   { href: "#fitur", label: "Fitur" },
   { href: "#cara-kerja", label: "Cara Kerja" },
+  { href: "#bandingkan", label: "Bandingkan" },
   { href: "#pricing", label: "Pricing" },
   { href: "#testimoni", label: "Testimoni" },
   { href: "#faq", label: "FAQ" },
 ];
 
 export const TRUST_BADGES = [
-  { icon: IconShieldCheck, text: "SSL Encrypted" },
-  { icon: IconBolt, text: "Server Indonesia" },
   { icon: IconShieldCheck, text: "Data Terenkripsi" },
+  { icon: IconBolt, text: "Server Indonesia" },
+  { icon: IconDownload, text: "Ekspor Excel kapanpun" },
   { icon: IconPhone, text: "Support 7 hari/minggu" },
 ];
 
@@ -41,8 +44,8 @@ export const MARQUEE_ITEMS = [
   { icon: IconChartBar, label: "Laporan Real-Time" },
   { icon: IconCalendar, label: "Booking Otomatis" },
   { icon: IconCash, label: "Keuangan Transparan" },
-  { icon: IconBolt, label: "Setup 5 Menit" },
-  { icon: IconShield, label: "Data Aman" },
+  { icon: IconCheck, label: "Tanpa Kartu Kredit" },
+  { icon: IconTool, label: "Pengingat Servis" },
   { icon: IconDeviceMobile, label: "Akses Dari Mana Saja" },
 ];
 
@@ -79,7 +82,7 @@ export const FEATURES: Feature[] = [
     description:
       "Sistem validasi real-time mencegah double booking. Kalender visual memudahkan kamu melihat ketersediaan semua unit.",
     bullets: [
-      "Validasi real-time sebelum booking dikonfirmasi error rate <5%",
+      "Validasi otomatis sebelum booking dikonfirmasi, jadwal bentrok langsung ketahuan",
       "Kalender view bulanan untuk manajemen jadwal visual",
       "Status booking otomatis selesai saat unit dikembalikan",
     ],
@@ -89,7 +92,7 @@ export const FEATURES: Feature[] = [
     id: "keuangan",
     icon: IconCash,
     label: "Keuangan",
-    title: "Uang Masuk Masuk, Uang Keluar Tercatat",
+    title: "Uang Masuk Tercatat, Uang Keluar Terpantau",
     description:
       "Setiap transaksi tercatat otomatis. Laporan profit/loss per unit tersedia real-time, tanpa Excel.",
     bullets: [
@@ -168,6 +171,8 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
   { label: "Manajemen mitra bagi hasil", old: false, new: true },
   { label: "Reminder maintenance", old: false, new: true },
   { label: "Akses dari mana saja", old: "terbatas", new: true },
+  { label: "Perlu biaya awal yang besar", old: true, new: false },
+  { label: "Butuh setup IT / instalasi", old: true, new: false },
   { label: "Scalable untuk bisnis besar", old: false, new: true },
 ];
 
@@ -179,6 +184,7 @@ export type PriceTier = {
   features: { text: string; included: boolean; highlight?: boolean }[];
   popular: boolean;
   cta: string;
+  href: string;
 };
 
 export const PRICING: PriceTier[] = [
@@ -197,6 +203,7 @@ export const PRICING: PriceTier[] = [
     ],
     popular: false,
     cta: "Pilih Starter",
+    href: "https://wa.me/6281234567890?text=Halo%20Sewain%2C%20saya%20ingin%20coba%20paket%20Starter.",
   },
   {
     name: "Growth",
@@ -213,6 +220,7 @@ export const PRICING: PriceTier[] = [
     ],
     popular: true,
     cta: "Pilih Growth",
+    href: "https://wa.me/6281234567890?text=Halo%20Sewain%2C%20saya%20ingin%20coba%20paket%20Growth.",
   },
   {
     name: "Enterprise",
@@ -229,6 +237,7 @@ export const PRICING: PriceTier[] = [
     ],
     popular: false,
     cta: "Hubungi Kami",
+    href: "https://wa.me/6281234567890?text=Halo%20Sewain%2C%20saya%20ingin%20diskusi%20paket%20Enterprise.",
   },
 ];
 
@@ -247,7 +256,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Budi Rent Car Jakarta",
     units: "8 unit",
     initials: "PB",
-    color: "bg-primary text-primary-foreground",
+    color: "bg-amber-400 text-amber-950",
     quote:
       "Dulu booking pakai WhatsApp sering salah. Sekarang pakai Sewain, semua otomatis. Double booking tidak pernah terjadi lagi!",
   },
@@ -256,7 +265,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Sari Jaya Mobil Bandung",
     units: "12 unit",
     initials: "IS",
-    color: "bg-secondary text-secondary-foreground",
+    color: "bg-emerald-500 text-white",
     quote:
       "Laporan keuangan jadi mudah banget. Profit per mobil langsung kelihatan tiap bulan. Mitra pun jadi lebih percaya sama saya.",
   },
@@ -265,7 +274,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Reza Rental Surabaya",
     units: "15 unit",
     initials: "MR",
-    color: "bg-accent text-accent-foreground",
+    color: "bg-violet-500 text-white",
     quote:
       "Saya punya 5 mitra unit, dulu ribut soal hitungan bagi hasil. Sekarang tinggal share laporan dari Sewain, semua setuju.",
   },

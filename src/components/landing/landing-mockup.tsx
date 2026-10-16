@@ -48,7 +48,7 @@ export function FeatureMockup({ id }: Props) {
         </div>
         <div className="rounded-xl bg-white/70 border border-border p-3">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold">Avensis B 44 X</span>
+            <span className="text-sm font-semibold">Xenia B 44 X</span>
             <span className="badge badge-success badge-xs badge-soft">Dikonfirmasi</span>
           </div>
           <p className="text-[10px] opacity-50 mt-1">

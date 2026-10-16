@@ -5,6 +5,7 @@
 // homepage keeps its reveal-on-scroll & count-up behavior.
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { animate, motion, useInView, useMotionValue, useTransform } from "motion/react";
 
 // ─── RevealSection ─────────────────────────────────────────────────────────────
 
@@ -58,38 +59,24 @@ type CounterProps = {
 };
 
 export function CounterStat({ value, suffix, label }: CounterProps) {
-  const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const started = useRef(false);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const count = useMotionValue(0);
+  const display = useTransform(count, (v) => Math.floor(v).toLocaleString("id"));
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1500;
-          const start = performance.now();
-          const tick = (now: number) => {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * value));
-            if (progress < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [value]);
+    if (!inView) return;
+    const controls = animate(count, value, {
+      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1],
+    });
+    return () => controls.stop();
+  }, [inView, value, count]);
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-extrabold text-primary font-bold">
-        {count.toLocaleString("id")}
+      <div className="text-4xl md:text-5xl font-extrabold text-primary">
+        <motion.span>{display}</motion.span>
         {suffix}
       </div>
       <div className="text-foreground/50 text-sm mt-1">{label}</div>
