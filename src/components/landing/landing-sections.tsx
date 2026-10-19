@@ -171,7 +171,7 @@ export function LandingCompare() {
           </p>
         </RevealSection>
         <RevealSection>
-          <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-[0_1px_2px_rgba(16,24,40,0.08),0_16px_40px_-20px_rgba(15,27,45,0.16)]">
+          <div className="overflow-hidden rounded-2xl bg-white">
             <div className="overflow-x-auto">
               <table className="table w-full">
                 <thead>
@@ -188,11 +188,8 @@ export function LandingCompare() {
                   </tr>
                 </thead>
                 <tbody>
-                  {COMPARISON_ROWS.map((row, i) => (
-                    <tr
-                      key={row.label}
-                      className={`border-t border-border/70 ${i % 2 === 1 ? "bg-muted/50" : ""}`}
-                    >
+                  {COMPARISON_ROWS.map((row) => (
+                    <tr key={row.label} className="border-t border-border/70">
                       <td className="py-3.5 px-5 text-sm font-medium">{row.label}</td>
                       <td className="py-3.5 px-4 text-center">
                         {row.old === true ? (
