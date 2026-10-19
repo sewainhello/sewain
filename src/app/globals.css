@@ -180,16 +180,6 @@
     scroll-margin-top: 96px;
   }
 
-  @keyframes sewain-float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
   @keyframes sewain-marquee {
     from {
       transform: translateX(0);
@@ -211,14 +201,6 @@
     }
   }
 
-  .animate-float-slow {
-    animation: sewain-float 6s ease-in-out infinite;
-  }
-
-  .animate-float-slower {
-    animation: sewain-float 8s ease-in-out 1.2s infinite;
-  }
-
   .marquee-track {
     animation: sewain-marquee 28s linear infinite;
   }
@@ -233,9 +215,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .marquee-track,
-    .animate-float-slow,
-    .animate-float-slower {
+    .marquee-track {
       animation: none;
     }
   }

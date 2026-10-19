@@ -18,7 +18,6 @@ import {
   IconSettings,
   IconSearch,
   IconChevronDown,
-  IconCheck,
   IconArrowRight,
 } from "@tabler/icons-react";
 import { MARQUEE_ITEMS, TRUST_BADGES } from "./landing-data";
@@ -229,10 +228,9 @@ export function LandingHero() {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-  // Parallax: mock drifts down, chip counter-drifts up — desktop only effect,
+  // Parallax: mock drifts down on scroll — desktop only effect,
   // transform-only so it never triggers layout work.
   const mockParallax = useTransform(scrollYProgress, [0, 1], [0, 90]);
-  const chipParallax = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   const rise: Variants = {
     hidden: { opacity: 0, y: 26 },
@@ -381,24 +379,6 @@ export function LandingHero() {
                 aria-hidden="true"
                 className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white/50 to-transparent lg:hidden"
               />
-
-              <motion.div
-                style={reduceMotion ? undefined : { y: chipParallax }}
-                initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
-                className="absolute left-2 top-0 lg:-left-4"
-              >
-              <div className="animate-float-slow flex items-center gap-2 rounded-2xl border border-slate-200/70 bg-white py-2 pl-2 pr-3 text-slate-900 shadow-sm">
-                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500 text-white">
-                  <IconCheck className="h-4 w-4" />
-                </span>
-                <span className="leading-tight">
-                  <span className="block text-xs font-bold">Double booking dicegah</span>
-                  <span className="block text-[11px] text-slate-500">Validasi real-time aktif</span>
-                </span>
-              </div>
-              </motion.div>
             </div>
           </div>
         </div>
