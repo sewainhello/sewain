@@ -66,22 +66,22 @@ const BARS = [
 function DashboardMock() {
   return (
     <div
-      className="flex w-[760px] max-w-none overflow-hidden rounded-2xl bg-white text-[#0f1b2d] shadow-[0_16px_40px_-24px_rgba(8,40,120,0.3)]"
+      className="flex w-[880px] max-w-none overflow-hidden rounded-t-lg bg-white text-foreground shadow-[0_30px_80px_-20px_rgba(10,60,160,0.45)] ring-8 ring-white/40"
       aria-hidden="true"
     >
       {/* Sidebar */}
-      <aside className="w-[170px] shrink-0 border-r border-slate-200/80 bg-slate-50/80 p-3">
+      <aside className="w-[170px] shrink-0 border-r border-slate-200 bg-slate-50 p-3">
         <div className="mb-4 flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <div className="flex h-7 w-7 items-center justify-center rounded-sm bg-primary text-primary-foreground">
             <IconCar className="h-4 w-4" />
           </div>
           <span className="text-sm font-semibold">Sewain</span>
         </div>
 
-        <div className="mb-4 flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-[11px] text-slate-400">
+        <div className="mb-4 flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-2 py-1.5 text-[11px] text-slate-400">
           <IconSearch className="h-3.5 w-3.5" />
           Cari
-          <span className="ml-auto rounded bg-slate-100 px-1 text-[10px]">⌘ K</span>
+          <span className="ml-auto rounded-sm bg-slate-100 px-1 text-[10px]">⌘ K</span>
         </div>
 
         {MENU.map((group) => (
@@ -90,9 +90,9 @@ function DashboardMock() {
             {group.items.map(({ label, icon: Icon, active, chevron }) => (
               <div
                 key={label}
-                className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-[11px] ${
+                className={`flex items-center gap-2 rounded-sm px-2 py-1.5 text-[11px] ${
                   active
-                    ? "bg-white font-semibold text-primary shadow-sm ring-1 ring-slate-200"
+                    ? "bg-white font-semibold text-primary ring-1 ring-slate-200"
                     : "text-slate-600"
                 }`}
               >
@@ -107,7 +107,7 @@ function DashboardMock() {
 
       {/* Main */}
       <div className="flex-1 bg-white">
-        <div className="flex items-center justify-between border-b border-slate-200/80 px-5 py-3 text-[11px] text-slate-400">
+        <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3 text-[11px] text-slate-400">
           <span>
             Beranda / <span className="font-medium text-slate-700">Dashboard</span>
           </span>
@@ -126,8 +126,8 @@ function DashboardMock() {
           </div>
 
           {/* Chart card */}
-          <div className="rounded-xl border border-slate-200/90">
-            <div className="border-b border-slate-200/80 px-4 py-2.5 text-xs font-semibold">
+          <div className="rounded-lg border border-slate-200 bg-white">
+            <div className="border-b border-slate-200 px-4 py-2.5 text-xs font-semibold">
               Ringkasan Pemesanan
             </div>
             <div className="p-4">
@@ -151,8 +151,8 @@ function DashboardMock() {
                 {BARS.map((bar) => (
                   <div key={bar.day} className="flex h-full flex-1 flex-col justify-end">
                     <div className="flex h-full items-end justify-center gap-1.5">
-                      <div className="w-5 rounded-t-[6px] bg-[#0a7cff]" style={{ height: `${bar.a}%` }} />
-                      <div className="w-5 rounded-t-[6px] bg-slate-200" style={{ height: `${bar.b}%` }} />
+                      <div className="w-5 rounded-t-[4px] bg-primary" style={{ height: `${bar.a}%` }} />
+                      <div className="w-5 rounded-t-[4px] bg-slate-200" style={{ height: `${bar.b}%` }} />
                     </div>
                     <span className="mt-1.5 text-center text-[9px] font-medium text-slate-400">
                       {bar.day}
@@ -162,7 +162,7 @@ function DashboardMock() {
               </div>
               <div className="mt-3 flex items-center gap-4 text-[10px] text-slate-500">
                 <span className="inline-flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-[#0a7cff]" /> Minggu ini
+                  <span className="h-2 w-2 rounded-full bg-primary" /> Minggu ini
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-slate-300" /> Minggu lalu
@@ -173,14 +173,14 @@ function DashboardMock() {
 
           {/* Stat cards */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-xl border border-slate-200/90 p-3">
+            <div className="rounded-lg border border-slate-200 bg-white p-3">
               <p className="text-[11px] text-slate-500">Pemesanan Hari Ini</p>
               <p className="mt-1 text-lg font-bold tabular-nums">26</p>
               <p className="text-[10px] text-slate-400">
                 <span className="font-semibold text-emerald-600">+ 8%</span> vs kemarin
               </p>
             </div>
-            <div className="rounded-xl border border-primary/20 bg-primary/[0.04] p-3">
+            <div className="rounded-lg border border-blue-200 bg-[#edf3fc] p-3">
               <p className="text-[11px] text-slate-500">Tingkat Okupansi</p>
               <p className="mt-1 text-lg font-bold tabular-nums text-primary">82%</p>
               <p className="text-[10px] text-slate-400">124 dari 150 unit</p>
@@ -188,8 +188,8 @@ function DashboardMock() {
           </div>
 
           {/* Table header */}
-          <div className="overflow-hidden rounded-xl border border-slate-200/90">
-            <div className="border-b border-slate-200/80 px-4 py-2.5 text-xs font-semibold">
+          <div className="overflow-hidden rounded-lg border border-slate-200 bg-white">
+            <div className="border-b border-slate-200 px-4 py-2.5 text-xs font-semibold">
               Pemesanan Terbaru
             </div>
             <div className="grid grid-cols-4 bg-slate-50 px-4 py-2 text-[10px] font-medium text-slate-500">
@@ -317,7 +317,7 @@ export function LandingHero() {
                 >
                   <Button
                     size="cta"
-                    className="border-0 bg-white text-slate-900 hover:bg-white/90"
+                    className="border-0 bg-white text-foreground hover:bg-white/90"
                   >
                     Coba Gratis 14 Hari
                   </Button>
@@ -352,33 +352,23 @@ export function LandingHero() {
               </motion.ul>
             </div>
 
-            {/* Dashboard mock — swipeable on mobile, composed on desktop */}
-            <div className="relative -mr-4 h-[460px] sm:h-[500px] lg:mr-0 lg:h-[560px] lg:overflow-visible">
+            {/* Dashboard mock — v0-style crop: container ditambatkan ke viewport
+                (left-1/2 + 50vw+120px) sehingga mockup SELALU terpotong kanan &
+                bawah di zoom berapa pun; di bawah lg cukup overflow-hidden */}
+            <div className="relative -mr-4 h-[460px] overflow-hidden sm:h-[500px] lg:absolute lg:left-1/2 lg:top-[60px] lg:mr-0 lg:h-[560px] lg:w-[calc(50vw+120px)] lg:overflow-visible">
               <motion.div
                 style={reduceMotion ? undefined : { y: mockParallax }}
                 className="h-full lg:h-auto"
               >
-              <motion.div
-                initial={reduceMotion ? false : { opacity: 0, y: 64 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", stiffness: 55, damping: 18, delay: 0.35 }}
-                className="h-full lg:h-auto"
-              >
-              <div
-                role="region"
-                aria-label="Geser untuk melihat pratinjau dashboard"
-                className="scrollbar-hide h-full overflow-x-auto overflow-y-hidden lg:h-auto lg:overflow-visible"
-              >
-                <div className="w-max px-4 pt-12 pb-4 sm:px-0 lg:absolute lg:left-0 lg:top-10 lg:w-auto lg:p-0">
+                <motion.div
+                  initial={reduceMotion ? false : { opacity: 0, y: 64 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ type: "spring", stiffness: 55, damping: 18, delay: 0.35 }}
+                  className="h-full lg:h-auto"
+                >
                   <DashboardMock />
-                </div>
-              </div>
+                </motion.div>
               </motion.div>
-              </motion.div>
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white/50 to-transparent lg:hidden"
-              />
             </div>
           </div>
         </div>

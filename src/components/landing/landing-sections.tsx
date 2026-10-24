@@ -49,11 +49,11 @@ export function LandingHow() {
     <section id="cara-kerja" className="py-20 md:py-24 bg-muted">
       <div className="container mx-auto px-4 md:px-8 max-w-6xl">
         <RevealSection className="mb-12 text-center md:mb-14">
-          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
+          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
             <IconSparkles className="h-3.5 w-3.5" />
             Cara Kerja
           </div>
-          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-foreground md:text-5xl">
             Kami buat prosesnya
             <br />
             <span className="text-secondary">mudah untuk Anda</span>
@@ -77,10 +77,10 @@ export function LandingHow() {
                 <motion.div
                   whileHover={{ y: -4 }}
                   transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                  className={`relative h-full min-h-[27rem] overflow-hidden rounded-2xl ${corner} border p-6 pb-40 flex flex-col shadow-[0_1px_2px_rgba(16,24,40,0.08),0_16px_40px_-20px_rgba(15,27,45,0.16)] ${
+                  className={`relative h-full min-h-[27rem] overflow-hidden rounded-2xl ${corner} p-6 pb-40 flex flex-col ${
                     active
-                      ? "border-secondary/30 bg-secondary text-primary-foreground"
-                      : "border-border bg-white text-foreground"
+                      ? "bg-secondary text-primary-foreground"
+                      : "bg-white text-foreground"
                   }`}
                 >
                   <span
@@ -103,7 +103,7 @@ export function LandingHow() {
                   </p>
 
                   <div
-                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 w-[70%] translate-y-6 rounded-xl bg-background text-foreground shadow-xl p-4 ${
+                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 w-[70%] translate-y-6 rounded-xl bg-[#edf3fc] text-foreground p-4 ${
                       active
                         ? ""
                         : i === 0
@@ -159,11 +159,11 @@ export function LandingCompare() {
     <section id="bandingkan" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-8 max-w-3xl">
         <RevealSection className="mb-10 text-center md:mb-12">
-          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
+          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
             <IconSparkles className="h-3.5 w-3.5" />
             Perbandingan Fitur
           </div>
-          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-foreground md:text-5xl">
             Kenapa Harus Kami? <span className="text-secondary">Sini Kami Jelasin!</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-slate-500 md:text-lg">
@@ -257,7 +257,7 @@ export function LandingPricing() {
                     onClick={() => setAnnual(opt.value)}
                     aria-pressed={selected}
                     className={`relative rounded-full px-5 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-white ${
-                      selected ? "text-slate-900" : "text-white/65 hover:text-white"
+                      selected ? "text-foreground" : "text-white/65 hover:text-white"
                     }`}
                   >
                     {selected && (
@@ -354,7 +354,7 @@ export function LandingPricing() {
                   className={`w-full border-0 focus-visible:border-white/40 focus-visible:ring-white/60 ${
                     tier.popular
                       ? "bg-[#0a7cff] text-white hover:bg-[#2f92ff]"
-                      : "bg-white text-slate-900 hover:bg-white/90"
+                      : "bg-white text-foreground hover:bg-white/90"
                   }`}
                 >
                   <a href={tier.href} target="_blank" rel="noopener noreferrer">
@@ -380,11 +380,11 @@ export function LandingTestimonials() {
     <section id="testimoni" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-8">
         <RevealSection className="mb-12 text-center md:mb-14">
-          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
+          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
             <IconSparkles className="h-3.5 w-3.5" />
             Testimoni
           </div>
-          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-foreground md:text-5xl">
             Dipakai oleh <span className="text-secondary">300+ Rental</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-slate-500 md:text-lg">
@@ -395,7 +395,7 @@ export function LandingTestimonials() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {TESTIMONIALS.map((t, i) => (
             <RevealSection key={t.name} delay={i * 60} className="h-full">
-              <figure className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-[0_1px_2px_rgba(16,24,40,0.08),0_16px_40px_-20px_rgba(15,27,45,0.16)]">
+              <figure className="flex h-full flex-col rounded-2xl bg-[#edf3fc] p-6">
                 <div className="flex gap-1 mb-4" aria-label="Rating 5 dari 5">
                   {Array(5)
                     .fill(0)
@@ -406,7 +406,7 @@ export function LandingTestimonials() {
                 <blockquote className="text-[15px] text-foreground/75 leading-relaxed flex-1 mb-6">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="flex items-center gap-3 border-t border-border/70 pt-5">
+                <figcaption className="flex items-center gap-3 pt-5">
                   <div
                     className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center font-bold text-sm shrink-0`}
                     aria-hidden="true"
@@ -436,11 +436,11 @@ export function LandingFaq() {
     <section id="faq" className="py-20 md:py-24 bg-muted">
       <div className="container mx-auto px-4 md:px-8 max-w-3xl">
         <RevealSection className="mb-10 text-center md:mb-12">
-          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
+          <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
             <IconSparkles className="h-3.5 w-3.5" />
             Sering Ditanyakan
           </div>
-          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+          <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-foreground md:text-5xl">
             Pertanyaan yang <span className="text-secondary">Sering Diajukan</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-slate-500 md:text-lg">
@@ -453,15 +453,17 @@ export function LandingFaq() {
             return (
               <RevealSection key={faq.q} delay={i * 60}>
                 <div
-                  className={`rounded-2xl border bg-white transition-colors ${
-                    isOpen ? "border-primary/30" : "border-border"
+                  className={`rounded-2xl transition-colors ${
+                    isOpen ? "bg-primary/[0.14]" : "bg-white"
                   }`}
                 >
                   <button
                     type="button"
                     onClick={() => setOpen(isOpen ? null : i)}
                     aria-expanded={isOpen}
-                    className="flex w-full cursor-pointer flex-row items-center justify-between gap-4 rounded-2xl p-5 text-left transition-colors hover:bg-muted/60 md:p-6"
+                    className={`flex w-full cursor-pointer flex-row items-center justify-between gap-4 rounded-2xl p-5 text-left transition-colors md:p-6 ${
+                      isOpen ? "" : "hover:bg-muted/60"
+                    }`}
                   >
                     <span className="font-semibold text-[15px] md:text-base pr-2">{faq.q}</span>
                     <span
@@ -507,7 +509,7 @@ export function LandingFaq() {
             <Button
               asChild
               size="cta-sm"
-              className="shrink-0 border-0 bg-white text-slate-900 hover:bg-white/90"
+              className="shrink-0 border-0 bg-white text-foreground hover:bg-white/90"
             >
               <a
                 href="https://wa.me/6281234567890?text=Halo%20Sewain%2C%20saya%20punya%20pertanyaan."
@@ -546,7 +548,7 @@ export function LandingFinalCta() {
                 <Button
                   asChild
                   size="cta"
-                  className="border-0 bg-white text-slate-900 hover:bg-white/90"
+                  className="border-0 bg-white text-foreground hover:bg-white/90"
                 >
                   <a href="#pricing">Coba Gratis Sekarang</a>
                 </Button>

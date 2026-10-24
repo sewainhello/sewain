@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import Link from "next/link";
+import { motion, useMotionValue, useScroll, useTransform } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/logo-mark";
 import { IconArrowRight, IconMenu2, IconX } from "@tabler/icons-react";
@@ -10,105 +9,134 @@ import { NAV_LINKS } from "./landing-data";
 
 export function LandingNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  // Dipakai HANYA untuk state hover (tidak terlihat saat diam), bukan lagi
+  // untuk warna dasar — warna sekarang scroll-linked, lihat di bawah.
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 70);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const onHero = !scrolled && !menuOpen;
+  const { scrollY } = useScroll();
+
+  // Pil kaca: fade-in kontinyu mengikuti progres scroll (compositor-driven),
+  // tidak pernah di-swap kelasnya sehingga tidak mungkin "pop".
+  const scrollGlass = useTransform(scrollY, [6, 110], [0, 1]);
+  // Warna teks/ikon/CTA: diinterpolasi putih → gelap pada rentang scroll
+  // yang hampir sama, jadi seluruh navbar berubah serempak dengan jari —
+  // tidak ada flip threshold yang memicu fade tiba-tiba.
+  const scrollText = useTransform(scrollY, [35, 100], [0, 1]);
+
+  // Saat menu mobile terbuka di puncak halaman, kaca + warna gelap dipaksa
+  // muncul agar konten nav tetap terbaca di atas hero biru.
+  const menuGlass = useMotionValue(0);
+  const menuText = useMotionValue(0);
+  useEffect(() => {
+    menuGlass.set(menuOpen ? 1 : 0);
+    menuText.set(menuOpen ? 1 : 0);
+  }, [menuOpen, menuGlass, menuText]);
+
+  const glassOpacity = useTransform(
+    [scrollGlass, menuGlass],
+    ([s, m]: number[]) => Math.max(s, m)
+  );
+  const textP = useTransform(
+    [scrollText, menuText],
+    ([s, m]: number[]) => Math.max(s, m)
+  );
+
+  const brandColor = useTransform(textP, [0, 1], ["#ffffff", "#0f1b2d"]);
+  const logoBg = useTransform(textP, [0, 1], ["#ffffff", "#0a7cff"]);
+  const logoIcon = useTransform(textP, [0, 1], ["#0a7cff", "#ffffff"]);
+  const linkColor = useTransform(textP, [0, 1], ["rgba(255,255,255,0.8)", "rgba(15,27,45,0.6)"]);
+  const ctaBg = useTransform(textP, [0, 1], ["#ffffff", "#0a7cff"]);
+  const ctaColor = useTransform(textP, [0, 1], ["#0f1b2d", "#ffffff"]);
+  const menuIconColor = useTransform(textP, [0, 1], ["#ffffff", "#0f1b2d"]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-4">
       <nav
         aria-label="Navigasi utama"
-        className={[
-          "relative mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full border px-4 py-2.5 pl-5 transition-colors duration-300",
-          scrolled
-            ? "border-border bg-background/85 backdrop-blur-xl shadow-[0_8px_24px_-16px_rgba(15,27,45,0.25)]"
-            : "border-transparent bg-transparent",
-        ].join(" ")}
+        className="relative mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full border border-transparent px-4 py-2.5 pl-5"
       >
+        {/* Layer kaca: bg + blur + border + shadow fade bersamaan via opacity */}
+        <motion.span
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full border border-border bg-background/85 backdrop-blur-xl shadow-[0_8px_24px_-16px_rgba(15,27,45,0.25)]"
+          style={{ opacity: glassOpacity }}
+        />
+
         {/* Brand */}
-        <a
+        <motion.a
           href="#hero"
-          className={`flex items-center gap-2 shrink-0 transition-colors ${
-            onHero ? "text-white" : "text-foreground"
-          }`}
+          className="relative flex items-center gap-2 shrink-0"
+          style={{ color: brandColor }}
           aria-label="Sewain - kembali ke atas"
         >
-          <span
-            className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
-              onHero ? "bg-white text-primary" : "bg-primary text-primary-foreground"
-            }`}
+          <motion.span
+            className="flex h-8 w-8 items-center justify-center rounded-full"
+            style={{ backgroundColor: logoBg, color: logoIcon }}
           >
-            <LogoMark size="sm" className={onHero ? "[&_path]:fill-[#0a7cff]" : "[&_path]:fill-white"} />
-          </span>
+            <LogoMark size="sm" className="[&_path]:fill-current" />
+          </motion.span>
           <span className="text-lg font-extrabold tracking-tight">Sewain</span>
-        </a>
+        </motion.a>
 
         {/* Center links (desktop) */}
-        <ul className="hidden lg:flex items-center gap-1">
+        <ul className="relative hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
+              <motion.a
                 href={link.href}
-                className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
-                  onHero
-                    ? "text-white/80 hover:text-white hover:bg-white/15"
-                    : "text-foreground/60 hover:text-foreground hover:bg-border/60"
+                className={`rounded-full px-3.5 py-2 text-sm font-medium ${
+                  scrolled
+                    ? "hover:bg-border/60 hover:text-foreground"
+                    : "hover:bg-white/15 hover:text-white"
                 }`}
+                style={{ color: linkColor }}
               >
                 {link.label}
-              </a>
+              </motion.a>
             </li>
           ))}
         </ul>
 
         {/* Actions */}
-        <div className="flex items-center gap-2 shrink-0">
-          <Button
-            asChild
-            size="cta-sm"
-            className={`border-0 ${
-              onHero
-                ? "bg-white text-slate-900 hover:bg-white/90"
-                : "bg-primary text-primary-foreground hover:bg-secondary"
+        <div className="relative flex items-center gap-2 shrink-0">
+          <motion.a
+            href="#pricing"
+            className={`inline-flex h-9 items-center gap-1.5 rounded-full px-5 text-sm font-semibold transition-[filter] duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+              scrolled ? "hover:brightness-110" : "hover:brightness-95"
             }`}
+            style={{ backgroundColor: ctaBg, color: ctaColor }}
           >
-            <Link href="#pricing">
-              Coba Gratis
-              <IconArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
+            Coba Gratis
+            <IconArrowRight className="w-4 h-4" />
+          </motion.a>
           <Button
             variant="ghost"
             size="icon-lg"
-            className={`lg:hidden rounded-full ${onHero ? "text-white hover:bg-white/15 hover:text-white" : ""}`}
+            className={`lg:hidden rounded-full ${scrolled ? "" : "hover:bg-white/15 hover:text-white"}`}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Tutup menu" : "Buka menu"}
             aria-expanded={menuOpen}
           >
-            {menuOpen ? <IconX className="w-5 h-5" /> : <IconMenu2 className="w-5 h-5" />}
+            <motion.span className="flex" style={{ color: menuIconColor }}>
+              {menuOpen ? <IconX className="w-5 h-5" /> : <IconMenu2 className="w-5 h-5" />}
+            </motion.span>
           </Button>
         </div>
       </nav>
 
-      {/* Mobile sheet */}
-      <AnimatePresence initial={false}>
-        {menuOpen && (
-          <motion.div
-            key="mobile-sheet"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 380, damping: 36 }}
-            className="lg:hidden overflow-hidden"
-          >
-      <div className="mt-2 rounded-2xl border border-border bg-background/95 backdrop-blur-xl p-3 shadow-lg">
+      {/* Mobile sheet — CSS max-height transition (ala sewain-v0) */}
+      <div
+        className={`lg:hidden mt-2 rounded-2xl border bg-background/95 backdrop-blur-xl p-3 shadow-lg transition-all duration-300 overflow-hidden ${
+          menuOpen ? "max-h-96 opacity-100 border-border" : "max-h-0 opacity-0 border-transparent"
+        }`}
+      >
         <ul className="flex flex-col gap-1">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
@@ -123,16 +151,13 @@ export function LandingNavbar() {
           ))}
           <li className="mt-1 border-t border-border pt-2">
             <Button asChild size="cta-sm" className="w-full">
-              <Link href="#pricing" onClick={() => setMenuOpen(false)}>
+              <a href="#pricing" onClick={() => setMenuOpen(false)}>
                 Coba Gratis
-              </Link>
+              </a>
             </Button>
           </li>
         </ul>
       </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

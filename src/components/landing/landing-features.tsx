@@ -40,11 +40,11 @@ export function LandingFeatures() {
       <div className="container relative z-10 mx-auto px-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           <RevealSection className="mb-12 text-center md:mb-14">
-            <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
+            <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-secondary shadow-sm">
               <IconSparkles className="h-3.5 w-3.5" />
               Fitur Unggulan
             </div>
-            <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-slate-900 md:text-5xl">
+            <h2 className="text-balance text-4xl font-medium leading-[1.08] tracking-[-0.02em] text-foreground md:text-5xl">
               Semua Operasional
               <br />
               <span className="text-secondary">Dalam Satu Platform</span>
@@ -67,7 +67,7 @@ export function LandingFeatures() {
                   <motion.article
                     whileHover={{ y: -4 }}
                     transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                    className="group relative flex h-full min-h-[400px] flex-col overflow-hidden rounded-2xl border border-blue-100/80 bg-[#f3f7ff] p-6 pb-0 shadow-[0_1px_2px_rgba(16,24,40,0.08),0_16px_40px_-20px_rgba(10,63,196,0.22)] md:p-8 md:pb-0"
+                    className="group relative flex h-full min-h-[400px] flex-col overflow-hidden rounded-2xl bg-[#edf3fc] p-6 pb-0 md:p-8 md:pb-0"
                   >
                     <PlusMark className="-right-3 top-4" />
                     <PlusMark className="bottom-6 left-1/3" />
@@ -77,11 +77,11 @@ export function LandingFeatures() {
                         <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                           <Icon className="h-4.5 w-4.5" />
                         </span>
-                        <span className="rounded-full border border-blue-200/80 bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-secondary">
+                        <span className="rounded-full border border-border/80 bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-secondary">
                           {f.label}
                         </span>
                       </div>
-                      <h3 className="mb-2 text-balance text-lg font-semibold tracking-tight text-slate-900 md:text-xl">
+                      <h3 className="mb-2 text-balance text-lg font-semibold tracking-tight text-foreground md:text-xl">
                         {f.title}
                       </h3>
                       <p className="max-w-sm text-sm leading-relaxed text-slate-500">
@@ -101,7 +101,7 @@ export function LandingFeatures() {
                     </div>
 
                     {/* Mockup sits at the bottom and is cropped by the card edge */}
-                    <div className="relative z-10 mx-auto mt-6 w-full max-h-[300px] flex-1 overflow-hidden rounded-t-2xl border border-b-0 border-blue-100 bg-white md:w-[92%]">
+                    <div className="relative z-10 mx-auto mt-6 w-full max-h-[300px] flex-1 overflow-hidden rounded-t-2xl bg-white md:w-[92%]">
                       <FeatureMockup id={f.preview} />
                     </div>
                   </motion.article>
@@ -140,7 +140,7 @@ export function LandingFeatures() {
                   <a href="#pricing">
                     <Button
                       size="cta-sm"
-                      className="border-0 bg-white text-slate-900 hover:bg-white/90"
+                      className="border-0 bg-white text-foreground hover:bg-white/90"
                     >
                       Coba Gratis
                     </Button>
